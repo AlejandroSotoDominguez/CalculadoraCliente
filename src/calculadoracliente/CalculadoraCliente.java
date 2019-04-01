@@ -24,17 +24,15 @@ public class CalculadoraCliente {
             String puertoS=JOptionPane.showInputDialog("Introduce el puerto");
             int puerto=Integer.parseInt(puertoS);
             InetSocketAddress addr = new InetSocketAddress("localhost", puerto);
-            
-            
 
             clienteSocket.connect(addr);
             InputStream is = clienteSocket.getInputStream();
             OutputStream os = clienteSocket.getOutputStream();
             numero1 = JOptionPane.showInputDialog("Introduce el número 1");
-            signo = JOptionPane.showInputDialog("Elige la operación:  +  -  x  /  raiz");
+            signo = JOptionPane.showInputDialog("Elige la operación:  +  -  x  /  r");
 
             //Si elegimos raiz cuadrada no se pedirá el número 2
-            if(signo.equalsIgnoreCase("raiz")){
+            if(signo.equalsIgnoreCase("r")){
                 os.write(numero1.getBytes());
                 os.write(signo.getBytes());
                 String numero2 = "0";
